@@ -5,20 +5,42 @@ import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-/* prima cosa in un test, si scrive l'asserzsione di ciò che si vuole testare */
+
 public class DecimalToRomanNumeralTest {
     @Test
     void zeroIsEmptyString() {
-        RomanNumeral romanNumeral = new RomanNumeral(0);
-        assertEquals("", romanNumeral.toString());
+        check(0,"");
     }
 
     @Test
     void oneIsI() {
-        RomanNumeral romanNumeral = new RomanNumeral(1);
-        assertEquals("I", romanNumeral.toString());
+        check(1,"I");
     }
 
+    @Test
+    void twoIsII() {
+        check(2,"II");
+    }
+
+    @Test
+    void threeIsIII() {
+        check(3,"III");
+    }
+
+    @Test
+    void fourIsIV() {
+        check(4,"IV");
+    }
+
+    @Test
+    void elevenISXI() {
+        check(11,"XI");
+    }
+
+    private void check(int decimal, String expected) {
+        RomanNumeral romanNumeral = new RomanNumeral(decimal);
+        assertEquals(expected, romanNumeral.toString());
+    }
 
 }
 
